@@ -1,0 +1,1 @@
+tellraw @a {"text":"Hide'n'seek 0.0.0 successfully loaded!","color":"green"}
