@@ -1,2 +1,3 @@
-summon armor_stand ~ ~ ~ {Tags:["hspawn"],Invisible:true,NoGravity:true,Invulnerable:true,Marker:true,CustomName:'{"text":"Spawn"}',CustomNameVisible:true}
-
+kill @e[type=armor_stand,tag=spawn]
+summon armor_stand ~ ~ ~ {Tags:["spawn"],Invisible:true,NoGravity:true,Invulnerable:true,Marker:true}
+tellraw @s {"text":"Spawnpoint set!","color":"green"}

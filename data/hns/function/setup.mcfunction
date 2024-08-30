@@ -1,5 +1,4 @@
-#This function sets up the scoreboards and teams for the world
-tellraw @a {"text":"Setting up the essentials...","color":"yellow"}
+tellraw @a {"text":"Setting up the gamemode...","color":"yellow"}
 
 gamerule keepInventory true
 gamerule doMobSpawning false
@@ -42,9 +41,14 @@ scoreboard players add Time: Info 0
 scoreboard objectives setdisplay sidebar Info
 
 #Setting up the team spawns
-scoreboard objectives add hiderSpawn dummy
+scoreboard objectives add hiddenInfo dummy
+scoreboard players set isGameRunning hiddenInfo 0
+scoreboard players set isSpawnpointSet hiddenInfo 0
+scoreboard players set autoSeekerPicker hiddenInfo 1
+scoreboard players set seekerOnDeath hiddenInfo 1
+
+data modify storage minecraft:macro true set value {"val":"1"}
+data modify storage minecraft:macro false set value {"val":"0"}
 
 
-tellraw @a {"text":"Gamemode setup partially complete. Please make sure that the spawns are set up correctly.","color":"green"}
-tellraw @a {"text":"Execute '/scoreboard objectives setdisplay sidebar coords' to check the saved coordinates","color":"yellow"}
-#tellraw @a {"text":"Gamemode setup complete!","color":"green"}
+tellraw @a {"text":"Hide'n'seek gamemode successfully setup!","color":"green"}
