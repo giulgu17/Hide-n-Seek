@@ -40,12 +40,20 @@ scoreboard players add Seekers: Info 0
 scoreboard players add Time: Info 0
 scoreboard objectives setdisplay sidebar Info
 
-#Setting up the team spawns
 scoreboard objectives add hiddenInfo dummy
 scoreboard players set isGameRunning hiddenInfo 0
 scoreboard players set isSpawnpointSet hiddenInfo 0
 scoreboard players set autoSeekerPicker hiddenInfo 1
 scoreboard players set seekerOnDeath hiddenInfo 1
+scoreboard players set setPrepTime hiddenInfo 30
+scoreboard players set setTime hiddenInfo 300
+
+data modify storage minecraft:hns setTime set value 300
+data modify storage minecraft:hns setPrepTime set value 30
+data modify storage minecraft:hns autoPickSeeker set value True
+data modify storage minecraft:hns seekerOnDeath set value True
+data modify storage minecraft:hns isGameRunning set value False
+data modify storage minecraft:hns isSpawnpointSet set value False
 
 data modify storage minecraft:macro true set value {"val":"1"}
 data modify storage minecraft:macro false set value {"val":"0"}
