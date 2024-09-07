@@ -12,6 +12,7 @@ gamerule doEntityDrops false
 gamerule doLimitedCrafting true
 gamerule doPatrolSpawning false
 gamerule doTraderSpawning false
+gamerule sendCommandFeedback false
 
 #Setting up the teams
 team add Hiders
@@ -22,9 +23,19 @@ team modify Hiders collisionRule pushOtherTeams
 team modify Hiders nametagVisibility hideForOtherTeams
 team add Seekers
 team modify Seekers color red
-team modify Hiders prefix {"text":"[Seeker] ","color":"red"}
+team modify Seekers prefix {"text":"[Seeker] ","color":"red"}
 team modify Seekers friendlyFire false
 team modify Seekers collisionRule pushOtherTeams
+team add Lobby
+team modify Lobby color gray
+team modify Lobby prefix {"text":"[Lobby] ","color":"gray"}
+team modify Lobby friendlyFire false
+team modify Lobby collisionRule never
+team add Spectators
+team modify Spectators color gray
+team modify Spectators prefix {"text":"[Spectator] ","color":"gray"}
+team modify Spectators friendlyFire false
+team modify Spectators collisionRule never
 
 #Setting up the scoreboards
 team add scoreHiders
@@ -33,6 +44,10 @@ team join scoreHiders Hiders:
 team add scoreSeekers
 team modify scoreSeekers color red
 team join scoreSeekers Seekers:
+team add blue
+team modify blue color blue
+team join blue autoSeekerPicker
+team join blue seekerOnDeath
 
 scoreboard objectives add Info dummy
 scoreboard players add Hiders: Info 0
@@ -41,19 +56,22 @@ scoreboard players add Time: Info 0
 scoreboard objectives setdisplay sidebar Info
 
 scoreboard objectives add hiddenInfo dummy
-scoreboard players set isGameRunning hiddenInfo 0
-scoreboard players set isSpawnpointSet hiddenInfo 0
-scoreboard players set autoSeekerPicker hiddenInfo 1
-scoreboard players set seekerOnDeath hiddenInfo 1
 scoreboard players set setPrepTime hiddenInfo 30
 scoreboard players set setTime hiddenInfo 300
+scoreboard players set isGameRunning hiddenInfo 0
+scoreboard players set isSpawnpointSet hiddenInfo 0
+scoreboard players set isLobbySet hiddenInfo 0
+scoreboard players set autoSeekerPicker hiddenInfo 1
+scoreboard players set seekerOnDeath hiddenInfo 1
+scoreboard players set isSeekerSpawned hiddenInfo 0
+scoreboard players set #Zero hiddenInfo 0
 
-data modify storage minecraft:hns setTime set value 300
-data modify storage minecraft:hns setPrepTime set value 30
-data modify storage minecraft:hns autoPickSeeker set value True
-data modify storage minecraft:hns seekerOnDeath set value True
-data modify storage minecraft:hns isGameRunning set value False
-data modify storage minecraft:hns isSpawnpointSet set value False
+scoreboard objectives add deaths deathCount
+scoreboard players add @a deaths 0
+
+
+scoreboard players operation Time: Info = setTime hiddenInfo
+scoreboard players operation PreparationTime: Info = setPrepTime hiddenInfo
 
 data modify storage minecraft:macro true set value {"val":"1"}
 data modify storage minecraft:macro false set value {"val":"0"}

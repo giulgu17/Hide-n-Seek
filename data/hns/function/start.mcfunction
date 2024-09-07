@@ -1,21 +1,32 @@
 #Starts the game
+execute if score isGameRunning hiddenInfo matches 1 run tellraw @a {"text":"Error: a game is already running.","color":"red"}
+execute if score isGameRunning hiddenInfo matches 1 run return fail
+scoreboard players set isGameRunning hiddenInfo 1
+scoreboard players set isSeekerSpawned hiddenInfo 0
 
-execute if score autoSeekerPicker hiddenInfo matches 1 run team join Hiders @a
-execute if score autoSeekerPicker hiddenInfo matches 1 run team join Seekers @r
-#execute if score autoSeekerPicker hiddenInfo matches 0 if 
+execute if score isSpawnpointSet hiddenInfo matches 0 run tellraw @a {"text":"Error: spawnpoint is not set.","color":"red"}
+execute if score isSpawnpointSet hiddenInfo matches 0 run return fail
+execute if score isLobbySet hiddenInfo matches 0 run tellraw @a {"text":"Error: lobby is not set.","color":"red"}
+execute if score isLobbySet hiddenInfo matches 0 run return fail
+
+execute if score autoSeekerPicker hiddenInfo matches 1 run team join Hiders @a[team=!Spectators]
+execute if score autoSeekerPicker hiddenInfo matches 1 run team join Seekers @r[team=Hiders]
+execute if score autoSeekerPicker hiddenInfo matches 0 if score Hiders: Info matches 0 run tellraw @a {"text":"Error: not enough hiders to start the game.","color":"red"}
+execute if score autoSeekerPicker hiddenInfo matches 0 if score Hiders: Info matches 0 run return fail
+execute if score autoSeekerPicker hiddenInfo matches 0 if score Seekers: Info matches 0 run tellraw @a {"text":"Error: not enough seekers to start the game.","color":"red"}
+execute if score autoSeekerPicker hiddenInfo matches 0 if score Seekers: Info matches 0 run return fail
 
 teleport @a[team=Hiders] @e[tag=spawn, limit=1]
 clear @a
 
-title @a[team=Hiders] title {"text":"Sei un HIDER!","color":"green"}
-title @a[team=Hiders] subtitle {"text":"Nasconditi e sopravvivi.","color":"white"}
-title @a[team=Seekers] title {"text":"Sei un SEEKER!","color":"red"}
-title @a[team=Seekers] subtitle {"text":"Uccidi tutti gli Hiders.","color":"white"}
+title @a[team=Hiders] title {"text":"You are a HIDER!","color":"green"}
+title @a[team=Hiders] subtitle {"text":"Hide and survive","color":"white"}
+title @a[team=Seekers] title {"text":"You are a SEEKER!","color":"red"}
+title @a[team=Seekers] subtitle {"text":"Kill all hiders","color":"white"}
 
-tellraw @a[team=Hiders] {"text":"Sei un hider! Il tuo compito è quello di nasconderti dal Seeker e di sopravvivere fino alla fine del tempo. Hai 45 secondi per nasconderti prima che il seeker cominci a cercare. Buona fortuna!","color":"green"}
-#tellraw @a[team=Hiders] {"text":"Sei un hider! Il tuo compito è quello di nasconderti dai Seeker e di sopravvivere fino alla fine del tempo. Hai 45 secondi per nasconderti prima che il seeker cominci a cercare. Buona fortuna!","color":"green"}
-#tellraw @a[team=Hiders] {"text":"Sei un hider! Il tuo compito è quello di nasconderti dai Seeker e di sopravvivere il più possibile. Hai 45 secondi per nasconderti prima che il seeker cominci a cercare. Buona fortuna!","color":"green"}
-#tellraw @a[team=Hiders] {"text":"Sei un hider! Il tuo compito è quello di nasconderti dai Seeker e di sopravvivere il più possibile. Hai 45 secondi per nasconderti prima che il seeker cominci a cercare. Buona fortuna!","color":"green"}
-tellraw @a[team=Seekers] {"text":"Sei un seeker! Il tuo compito è quello di andare a uccidere tutti gli hiders che si sono nascosti. Spawnerai tra 45 secondi, nel frattempo seleziona un kit che ti piace. Se muori tornerai qui."}
+tellraw @a[team=Hiders] {"text":"You are a hider! Your objective is to hide from the Seeker and survive until time runs out. You have some preparation time to hide before the seeker spawns. Good luck!","color":"green"}
+tellraw @a[team=Seekers] {"text":"You are a seeker! Your objective is to find and kill the hiders. You will spawn when the preparation time runs out. If you die you will respawn.","color":"red"}
 
-#teleport @a[team=Seekers] @e[tag=spawn, limit=1]
+
+
+schedule function hns:countdown 1s
