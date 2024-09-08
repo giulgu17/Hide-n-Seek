@@ -65,6 +65,8 @@ scoreboard players set autoSeekerPicker hiddenInfo 1
 scoreboard players set seekerOnDeath hiddenInfo 1
 scoreboard players set isSeekerSpawned hiddenInfo 0
 scoreboard players set #Zero hiddenInfo 0
+scoreboard players set #Two hiddenInfo 2
+scoreboard players set Lobby hiddenInfo 0
 
 scoreboard objectives add deaths deathCount
 scoreboard players add @a deaths 0

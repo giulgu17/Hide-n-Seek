@@ -4,6 +4,7 @@ effect clear @a[team=!Seekers] minecraft:blindness
 
 execute store result score Hiders: Info run team list Hiders
 execute store result score Seekers: Info run team list Seekers
+execute store result score Lobby hiddenInfo run team list Lobby
 
 execute if score isGameRunning hiddenInfo matches 1 run function hns:tick2
 execute if score isGameRunning hiddenInfo matches 0 run team join Lobby @a[team=]
