@@ -1,3 +1,4 @@
+# Sets the spawnpoint for the lobby
 kill @e[type=armor_stand,tag=lobby]
 summon armor_stand ~ ~ ~ {Tags:["lobby"],Invisible:true,NoGravity:true,Invulnerable:true,Marker:true}
 spawnpoint @a ~ ~ ~
