@@ -1,0 +1,3 @@
+-Kit system
+-Custom command to quit and spectate anytime
+-Handle people joining and leaving mid-game

@@ -14,7 +14,7 @@ gamerule doPatrolSpawning false
 gamerule doTraderSpawning false
 gamerule sendCommandFeedback false
 
-#Setting up the teams
+# Setting up the teams
 team add Hiders
 team modify Hiders color green
 team modify Hiders prefix {"text":"[Hider] ","color":"green"}
@@ -37,7 +37,8 @@ team modify Spectators prefix {"text":"[Spectator] ","color":"gray"}
 team modify Spectators friendlyFire false
 team modify Spectators collisionRule never
 
-#Setting up the scoreboards
+
+# Setting up the scoreboards
 team add scoreHiders
 team modify scoreHiders color green
 team join scoreHiders Hiders:
@@ -46,7 +47,7 @@ team modify scoreSeekers color red
 team join scoreSeekers Seekers:
 team add blue
 team modify blue color blue
-team join blue autoSeekerPicker
+team join blue autoSeeker
 team join blue seekerOnDeath
 
 scoreboard objectives add Info dummy
@@ -61,10 +62,11 @@ scoreboard players set setTime hiddenInfo 300
 scoreboard players set isGameRunning hiddenInfo 0
 scoreboard players set isSpawnpointSet hiddenInfo 0
 scoreboard players set isLobbySet hiddenInfo 0
-scoreboard players set autoSeekerPicker hiddenInfo 1
+scoreboard players set autoSeeker hiddenInfo 1
 scoreboard players set seekerOnDeath hiddenInfo 1
 scoreboard players set isSeekerSpawned hiddenInfo 0
 scoreboard players set #Zero hiddenInfo 0
+scoreboard players set #One hiddenInfo 1
 scoreboard players set #Two hiddenInfo 2
 scoreboard players set Lobby hiddenInfo 0
 
