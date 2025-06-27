@@ -1,0 +1,58 @@
+{
+    "type": "minecraft:confirmation",
+    "title": "Settings",
+    "external_title": "Settings...",
+    "pause": false,
+    "can_close_with_escape": true,
+    "inputs": [
+        {
+            "type": "minecraft:number_range",
+            "key": "prep_time",
+            "width": 180,
+            "label": "Prep phase time (in seconds)",
+            "start": 0,
+            "end": 60,
+            "step": 1,
+            "initial": 30
+        },
+        {
+            "type": "minecraft:number_range",
+            "key": "game_time",
+            "label": "Game time (in seconds)",
+            "start": 10,
+            "end": 900,
+            "step": 10,
+            "initial": 300
+        },
+        {
+            "type": "minecraft:single_option",
+            "key": "auto_seeker",
+            "label": "Seeker is chosen",
+            "options": [
+                {"id":"1","display":"Randomly"}, {"id":"0","display":"Manually"}
+            ]
+        },
+        {
+            "type": "minecraft:single_option",
+            "key": "hider_death",
+            "label": "Hiders on death become",
+            "options": [
+                {"id":"1","display":"Seekers"}, {"id":"0","display":"Spectators"}
+            ]
+        }
+    ],
+    "yes": {
+        "label": "Confirm",
+        "action": {
+            "type": "dynamic/run_command",
+            "template": "function hns:savesettings {'prep_time':'$(prep_time)','game_time':'$(game_time)','auto_seeker':'$(auto_seeker)','hider_death':'$(hider_death)'}"
+        }
+    },
+    "no": {
+        "label": "Cancel",
+        "action": {
+            "type": "show_dialog",
+            "dialog": "hns:main"
+        }
+    }
+}

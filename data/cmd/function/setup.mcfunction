@@ -48,7 +48,7 @@ team join scoreSeekers Seekers:
 team add blue
 team modify blue color blue
 team join blue autoSeeker
-team join blue seekerOnDeath
+team join blue hiderDeath
 
 scoreboard objectives add Info dummy
 scoreboard players add Hiders: Info 0
@@ -63,12 +63,14 @@ scoreboard players set isGameRunning hiddenInfo 0
 scoreboard players set isSpawnpointSet hiddenInfo 0
 scoreboard players set isLobbySet hiddenInfo 0
 scoreboard players set autoSeeker hiddenInfo 1
-scoreboard players set seekerOnDeath hiddenInfo 1
+scoreboard players set hiderDeath hiddenInfo 1
 scoreboard players set isSeekerSpawned hiddenInfo 0
 scoreboard players set #Zero hiddenInfo 0
 scoreboard players set #One hiddenInfo 1
 scoreboard players set #Two hiddenInfo 2
 scoreboard players set Lobby hiddenInfo 0
+
+scoreboard objectives add hns.temp trigger
 
 scoreboard objectives add deaths deathCount
 scoreboard players add @a deaths 0
@@ -77,8 +79,15 @@ scoreboard players add @a deaths 0
 scoreboard players operation Time: Info = setTime hiddenInfo
 scoreboard players operation PreparationTime: Info = setPrepTime hiddenInfo
 
-data modify storage minecraft:macro true set value {"val":"1"}
-data modify storage minecraft:macro false set value {"val":"0"}
+# Setting up the data storages
+# TODO: create a tag for who is in settings menu
+data modify storage minecraft:hns hns_settings set value { \
+    command: "TEST IGNORE", \
+    prep_time: 30, \
+    game_time: 300, \
+    auto_seeker: 1, \
+    hider_death: 1 \
+}
 
 
 tellraw @a {"text":"Hide'n'seek gamemode successfully setup!","color":"green"}

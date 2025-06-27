@@ -1,0 +1,46 @@
+{
+    "type": "minecraft:multi_action",
+    "title": "Hide'n'Seek by giulgu17",
+    "external_title": "Hide'n'Seek menu...",
+    "pause": false,
+    "can_close_with_escape": true,
+    "columns": 1,
+    "actions": [
+        {
+            "label": {
+                "text": "Start game",
+                "color": "green"
+            },
+            "width": 80,
+            "action": {
+                "type": "minecraft:run_command",
+                "command": "/help"
+            }
+        },
+        {
+            "label": {
+                "text": "Settings..."
+            },
+            "width": 120,
+            "action": {
+                "type": "minecraft:show_dialog",
+                "dialog": "hns:menu"
+            }
+        },
+        {
+            "label": {
+                "text": "Kit selection"
+            },
+            "width": 120,
+            "action": {
+                "type": "minecraft:show_dialog",
+                "dialog": "hns:kits"
+            }
+        }
+    ],
+    "exit_action": {
+        "label": {
+            "text": "Exit menu"
+        }
+    }
+}

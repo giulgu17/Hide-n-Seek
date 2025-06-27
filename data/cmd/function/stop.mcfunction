@@ -1,4 +1,2 @@
-scoreboard players set isGameRunning hiddenInfo 0
-scoreboard players operation Time: Info = setTime hiddenInfo
-scoreboard players operation PreparationTime: Info = setPrepTime hiddenInfo
-schedule clear hns:countdown
+execute if score isGameRunning Info matches 1 run tellraw @a {"text":"The game was stopped."}
+execute if score isGameRunning Info matches 1 run function hns:end

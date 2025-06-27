@@ -19,9 +19,6 @@ title @a[team=Hiders] subtitle {"text":"Hide and survive","color":"white"}
 title @a[team=Seekers] title {"text":"You are a SEEKER!","color":"red"}
 title @a[team=Seekers] subtitle {"text":"Kill all hiders","color":"white"}
 
-#tellraw @a[team=Hiders] {"text":"You are a hider! Your objective is to hide from the Seeker and survive until time runs out. You have some preparation time to hide before the seeker spawns. Good luck!","color":"green"}
-#tellraw @a[team=Seekers] {"text":"You are a seeker! Your objective is to find and kill the hiders. You will spawn when the preparation time runs out. If you die you will respawn.","color":"red"}
-
 # TODO: kit system with execute as @a[team]
 # TODO: make items unable to be dropped
 give @a[team=Hiders] minecraft:stick[minecraft:enchantments={"minecraft:sharpness":2,"minecraft:knockback":4}] 1

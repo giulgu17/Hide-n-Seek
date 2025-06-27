@@ -1,4 +1,4 @@
-# This only triggers when the game is running
+# Executes every tick when the game IS running
 
 # Spawns the seekers when the prep time is done
 execute if score PreparationTime: Info matches 0 if score isSeekerSpawned hiddenInfo matches 0 run function hns:start2
