@@ -14,7 +14,7 @@
             "width": 80,
             "action": {
                 "type": "minecraft:run_command",
-                "command": "/help"
+                "command": "function hns:start"
             }
         },
         {
@@ -23,8 +23,8 @@
             },
             "width": 120,
             "action": {
-                "type": "minecraft:show_dialog",
-                "dialog": "hns:menu"
+                "type": "minecraft:run_command",
+                "command": "function hns:settings_open"
             }
         },
         {

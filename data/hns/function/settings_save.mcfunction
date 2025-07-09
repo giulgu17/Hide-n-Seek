@@ -1,8 +1,11 @@
-# prep_time  game_time  auto_seeker  hider_death
+# Saves the chosen settings
 $scoreboard players set setPrepTime hiddenInfo $(prep_time)
 $scoreboard players set setTime hiddenInfo $(game_time)
 $scoreboard players set autoSeeker hiddenInfo $(auto_seeker)
 $scoreboard players set hiderDeath hiddenInfo $(hider_death)
+
+$data modify storage hns:main hns_settings.prep_time set value $(prep_time)
+$data modify storage hns:main hns_settings.game_time set value $(game_time)
 
 tellraw @a {"text":"Settings have been updated!","color":"green"}
 $tellraw @a {"text":"Preparation time: $(prep_time)","color":"yellow"}
