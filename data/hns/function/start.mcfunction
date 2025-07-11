@@ -3,7 +3,7 @@ execute if score isGameRunning hiddenInfo matches 1 run return run tellraw @a {"
 execute if score isSpawnpointSet hiddenInfo matches 0 run return run tellraw @a {"text":"Error: spawnpoint is not set.","color":"red"}
 execute if score isLobbySet hiddenInfo matches 0 run return run tellraw @a {"text":"Error: lobby spawn is not set.","color":"red"}
 
-execute if score autoSeeker hiddenInfo matches 1 if score Lobby hiddenInfo < #Two hiddenInfo run return run tellraw @a {"text":"Error: not enough players to start the game.","color":"red"}
+execute if score autoSeeker hiddenInfo matches 1 if score Lobby hiddenInfo matches ..1 run return run tellraw @a {"text":"Error: not enough players to start the game.","color":"red"}
 execute if score autoSeeker hiddenInfo matches 0 if score Hiders: Info matches 0 run return run tellraw @a {"text":"Error: not enough hiders to start the game.","color":"red"}
 execute if score autoSeeker hiddenInfo matches 0 if score Seekers: Info matches 0 run return run tellraw @a {"text":"Error: not enough seekers to start the game.","color":"red"}
 
@@ -26,6 +26,7 @@ give @a[team=Seekers] minecraft:diamond_sword[minecraft:enchantments={"minecraft
 
 scoreboard players set isGameRunning hiddenInfo 1
 scoreboard players set isSeekerSpawned hiddenInfo 0
+scoreboard players set @a deaths 0
 
 # Starts the timer
 schedule function hns:timer 1s

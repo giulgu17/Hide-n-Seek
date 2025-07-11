@@ -45,10 +45,13 @@ team join scoreHiders Hiders:
 team add scoreSeekers
 team modify scoreSeekers color red
 team join scoreSeekers Seekers:
-team add blue
-team modify blue color blue
-team join blue autoSeeker
-team join blue hiderDeath
+team add hns.settings.blue
+team modify hns.settings.blue color blue
+team join hns.settings.blue autoSeeker
+team join hns.settings.blue hiderDeath
+team add hns.settings.gray
+team modify hns.settings.gray color gray
+team join hns.settings.gray Lobby
 
 scoreboard objectives add Info dummy
 scoreboard players add Hiders: Info 0
@@ -66,12 +69,11 @@ scoreboard players set isLobbySet hiddenInfo 0
 scoreboard players set isGameRunning hiddenInfo 0
 scoreboard players set isSeekerSpawned hiddenInfo 0
 scoreboard players set Lobby hiddenInfo 0
-scoreboard players set #Zero hiddenInfo 0
-scoreboard players set #One hiddenInfo 1
-scoreboard players set #Two hiddenInfo 2
 
 scoreboard objectives add deaths deathCount
 scoreboard players add @a deaths 0
+
+scoreboard objectives add leave minecraft.custom:minecraft.leave_game
 
 scoreboard players operation Time: Info = setTime hiddenInfo
 scoreboard players operation PreparationTime: Info = setPrepTime hiddenInfo
