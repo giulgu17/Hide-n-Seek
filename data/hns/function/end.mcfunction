@@ -5,6 +5,6 @@ schedule clear hns:timer
 
 gamemode adventure @a
 teleport @a @e[tag=lobby,limit=1]
-team join Lobby @a
+team join hns_lobby @a
 clear @a
 effect clear @a

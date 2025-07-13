@@ -1,7 +1,7 @@
 # Runs every tick when the game is NOT running
 
-execute if score autoSeeker hiddenInfo matches 0 run team join Hiders @a[team=!Seekers,team=!Spectators]
-execute if score autoSeeker hiddenInfo matches 1 run team join Lobby @a[team=!Spectators]
+execute if score autoSeeker hiddenInfo matches 0 run team join Hiders @a[team=!Seekers,team=!hns_spectators]
+execute if score autoSeeker hiddenInfo matches 1 run team join hns_lobby @a[team=!hns_spectators]
 
 scoreboard players reset @a deaths
 

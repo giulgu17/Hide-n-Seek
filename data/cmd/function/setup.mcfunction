@@ -28,16 +28,16 @@ team modify Seekers color red
 team modify Seekers prefix {text:"[Seeker] ","color":"red"}
 team modify Seekers friendlyFire false
 team modify Seekers collisionRule pushOtherTeams
-team add Lobby
-team modify Lobby color gray
-team modify Lobby prefix {text:"[Lobby] ","color":"gray"}
-team modify Lobby friendlyFire false
-team modify Lobby collisionRule never
-team add Spectators
-team modify Spectators color gray
-team modify Spectators prefix {text:"[Spectator] ","color":"gray"}
-team modify Spectators friendlyFire false
-team modify Spectators collisionRule never
+team add hns_lobby
+team modify hns_lobby color gray
+team modify hns_lobby prefix {text:"[Lobby] ","color":"gray"}
+team modify hns_lobby friendlyFire false
+team modify hns_lobby collisionRule never
+team add hns_spectators
+team modify hns_spectators color gray
+team modify hns_spectators prefix {text:"[Spectator] ","color":"gray"}
+team modify hns_spectators friendlyFire false
+team modify hns_spectators collisionRule never
 
 
 # Setting up the scoreboards
@@ -53,7 +53,7 @@ team join hns.settings.blue autoSeeker
 team join hns.settings.blue hiderDeath
 team add hns.settings.gray
 team modify hns.settings.gray color gray
-team join hns.settings.gray Lobby
+team join hns.settings.gray hns_lobby
 
 # Setting up the scoreboards
 scoreboard objectives add Info dummy
@@ -71,7 +71,7 @@ scoreboard players set isSpawnpointSet hiddenInfo 0
 scoreboard players set isLobbySet hiddenInfo 0
 scoreboard players set isGameRunning hiddenInfo 0
 scoreboard players set isSeekerSpawned hiddenInfo 0
-scoreboard players set Lobby hiddenInfo 0
+scoreboard players set hns_lobby hiddenInfo 0
 
 scoreboard objectives add deaths deathCount
 scoreboard players add @a deaths 0

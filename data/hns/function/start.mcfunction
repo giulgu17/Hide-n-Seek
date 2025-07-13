@@ -8,7 +8,7 @@ execute if score autoSeeker hiddenInfo matches 0 if score Hiders: Info matches 0
 execute if score autoSeeker hiddenInfo matches 0 if score Seekers: Info matches 0 run return run tellraw @a {"text":"Error: not enough seekers to start the game.","color":"red"}
 
 # Starts the game
-execute if score autoSeeker hiddenInfo matches 1 run team join Hiders @a[team=!Spectators]
+execute if score autoSeeker hiddenInfo matches 1 run team join Hiders @a[team=!hns_spectators]
 execute if score autoSeeker hiddenInfo matches 1 run team join Seekers @r[team=Hiders]
 
 teleport @a[team=Hiders] @e[tag=spawn, limit=1]
@@ -26,8 +26,8 @@ scoreboard players set isGameRunning hiddenInfo 1
 scoreboard players set isSeekerSpawned hiddenInfo 0
 scoreboard players set @a deaths 0
 
-gamemode adventure @a[team=!Spectators]
-gamemode spectator @a[team=Spectators]
+gamemode adventure @a[team=!hns_spectators]
+gamemode spectator @a[team=hns_spectators]
 
 # Starts the timer
 schedule function hns:timer 1s

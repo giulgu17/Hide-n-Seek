@@ -16,7 +16,7 @@ execute unless entity @e[type=armor_stand,tag=lobby] if score isLobbySet hiddenI
 # Counts the amount of people present in each team
 execute store result score Hiders: Info if entity @a[team=Hiders]
 execute store result score Seekers: Info if entity @a[team=Seekers]
-execute store result score Lobby hiddenInfo if entity @a[team=Lobby]
+execute store result score Lobby hiddenInfo if entity @a[team=hns_lobby]
 
 
 # Kit selection system

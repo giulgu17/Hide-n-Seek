@@ -1,4 +1,4 @@
-team join Lobby @s
+team join hns_lobby @s
 clear @s
 effect clear @s
 scoreboard players reset @a deaths
