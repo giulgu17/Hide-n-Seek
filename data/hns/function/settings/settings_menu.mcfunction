@@ -1,4 +1,3 @@
-# Displays the settings menu
 $dialog show @s { \
     "type": "minecraft:confirmation", \
     "title": "Settings", \
@@ -39,7 +38,7 @@ $dialog show @s { \
         } \
     ], \
     "yes": { \
-        "label": "Confirm", \
+        "label": "Confirm (requires op)", \
         "action": { \
             "type": "dynamic/run_command", \
             "template": "$(template)" \

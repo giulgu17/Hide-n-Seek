@@ -19,14 +19,15 @@ title @a[team=Hiders] subtitle {"text":"Hide and survive","color":"white"}
 title @a[team=Seekers] title {"text":"You are a SEEKER!","color":"red"}
 title @a[team=Seekers] subtitle {"text":"Kill all hiders","color":"white"}
 
-# TODO: kit system with execute as @a[team]
 # TODO: make items unable to be dropped
-give @a[team=Hiders] minecraft:stick[minecraft:enchantments={"minecraft:sharpness":2,"minecraft:knockback":4}] 1
-give @a[team=Seekers] minecraft:diamond_sword[minecraft:enchantments={"minecraft:sharpness":15,"minecraft:sweeping_edge":10},minecraft:unbreakable={}] 1
+execute as @a run function hns:loadout/give
 
 scoreboard players set isGameRunning hiddenInfo 1
 scoreboard players set isSeekerSpawned hiddenInfo 0
 scoreboard players set @a deaths 0
+
+gamemode adventure @a[team=!Spectators]
+gamemode spectator @a[team=Spectators]
 
 # Starts the timer
 schedule function hns:timer 1s

@@ -1,4 +1,4 @@
-tellraw @a {"text":"Setting up the gamemode...","color":"yellow"}
+tellraw @a {text:"Setting up the gamemode...","color":"yellow"}
 
 gamerule keepInventory true
 gamerule doMobSpawning false
@@ -12,28 +12,30 @@ gamerule doEntityDrops false
 gamerule doLimitedCrafting true
 gamerule doPatrolSpawning false
 gamerule doTraderSpawning false
-#gamerule sendCommandFeedback false
+
+gamerule sendCommandFeedback false
+gamerule locatorBar false
 
 # Setting up the teams
 team add Hiders
 team modify Hiders color green
-team modify Hiders prefix {"text":"[Hider] ","color":"green"}
+team modify Hiders prefix {text:"[Hider] ","color":"green"}
 team modify Hiders friendlyFire false
 team modify Hiders collisionRule pushOtherTeams
 team modify Hiders nametagVisibility hideForOtherTeams
 team add Seekers
 team modify Seekers color red
-team modify Seekers prefix {"text":"[Seeker] ","color":"red"}
+team modify Seekers prefix {text:"[Seeker] ","color":"red"}
 team modify Seekers friendlyFire false
 team modify Seekers collisionRule pushOtherTeams
 team add Lobby
 team modify Lobby color gray
-team modify Lobby prefix {"text":"[Lobby] ","color":"gray"}
+team modify Lobby prefix {text:"[Lobby] ","color":"gray"}
 team modify Lobby friendlyFire false
 team modify Lobby collisionRule never
 team add Spectators
 team modify Spectators color gray
-team modify Spectators prefix {"text":"[Spectator] ","color":"gray"}
+team modify Spectators prefix {text:"[Spectator] ","color":"gray"}
 team modify Spectators friendlyFire false
 team modify Spectators collisionRule never
 
@@ -53,6 +55,7 @@ team add hns.settings.gray
 team modify hns.settings.gray color gray
 team join hns.settings.gray Lobby
 
+# Setting up the scoreboards
 scoreboard objectives add Info dummy
 scoreboard players add Hiders: Info 0
 scoreboard players add Seekers: Info 0
@@ -75,18 +78,35 @@ scoreboard players add @a deaths 0
 
 scoreboard objectives add leave minecraft.custom:minecraft.leave_game
 
+scoreboard objectives add hns.kit_hider dummy
+scoreboard objectives add hns.kit_seeker dummy
+scoreboard objectives add hns.kit_selection trigger
+
+scoreboard objectives add hns.cmd trigger
+
 scoreboard players operation Time: Info = setTime hiddenInfo
 scoreboard players operation PreparationTime: Info = setPrepTime hiddenInfo
 
 
 # Setting up the data storages
 data modify storage hns:main hns_settings set value { \
-    template: "function hns:settings_save {'prep_time':'$(new_prep_time)','game_time':'$(new_game_time)','auto_seeker':'$(new_auto_seeker)','hider_death':'$(new_hider_death)'}", \
+    template: "function hns:settings/settings_save {'prep_time':'$(new_prep_time)','game_time':'$(new_game_time)','auto_seeker':'$(new_auto_seeker)','hider_death':'$(new_hider_death)'}", \
     prep_time: 30, \
     game_time: 300, \
     auto_seeker: [{id:"0",display:"Manually"}, {id:"1",display:"Randomly"}], \
     hider_death: [{id:"0",display:"Spectators"}, {id:"1",display:"Seekers"}] \
 }
 
+data modify storage hns:main hns_loadout set value { \
+    kits: [{label: {text: "Default", color: "red"}, tooltip: {text: "1x Stick (sharpness II, knockback IV)"}, action: {type: "minecraft:run_command", command: "trigger hns.kit_selection set 1"}}, \
+    {label: {text: "Swordsman", color: "red"}, tooltip: {text: "1x Diamond Sword (sharpness 15, sweeping edge 10)"}, action: {type: "minecraft:run_command", command: "trigger hns.kit_selection set 101"}}, \
+    {label: {text: "Ninja", color: "red"}, tooltip: {text: "2x Lingering blindness potions (00:05)"}, action: {type: "minecraft:run_command", command: "trigger hns.kit_selection set 2"}}, \
+    {label: {text: "Archer", color: "red"}, tooltip: {text: "1x Bow (Power IV)"}, action: {type: "minecraft:run_command", command: "trigger hns.kit_selection set 102"}}, \
+    {label: {text: "Adrenaline Junkie", color: "red"}, tooltip: {text: "1x Totem of Undying"}, action: {type: "minecraft:run_command", command: "trigger hns.kit_selection set 3"}}, \
+    {label: {text: "Executioner", color: "red"}, tooltip: {text: "1x Diamond Axe (sharpness 20)"}, action: {type: "minecraft:run_command", command: "trigger hns.kit_selection set 103"}}, \
+    ], \
+    team: [{id:"0",display:"Hider"}, {id:"1",display:"Seeker"}] \
+}
 
-tellraw @a {"text":"Hide'n'seek gamemode successfully setup!","color":"green"}
+
+tellraw @a {text:"Hide'n'seek gamemode successfully setup!","color":"green"}

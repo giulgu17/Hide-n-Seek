@@ -1,10 +1,10 @@
-# Executes every tick when the game IS running
+# Runs every tick when the game IS running
 
 # Spawns the seeker(s) when the prep phase is done
 execute if score PreparationTime: Info matches 0 if score isSeekerSpawned hiddenInfo matches 0 run function hns:start2
 
 # When someone dies, they respawn
-execute as @a[scores={deaths=1},limit=1] run function hns:respawn
+execute as @a[scores={deaths=1..},limit=1] run function hns:respawn/respawn
 
 # Checks end game conditions
 execute if score Hiders: Info matches 0 run tellraw @a {"text":"The seekers have won the round!","color":"red"}

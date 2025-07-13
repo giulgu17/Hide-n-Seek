@@ -24,7 +24,7 @@
             "width": 120,
             "action": {
                 "type": "minecraft:run_command",
-                "command": "function hns:settings_open"
+                "command": "trigger hns.cmd set 1"
             }
         },
         {
@@ -33,8 +33,8 @@
             },
             "width": 120,
             "action": {
-                "type": "minecraft:show_dialog",
-                "dialog": "hns:kits"
+                "type": "minecraft:run_command",
+                "command": "trigger hns.cmd set 2"
             }
         }
     ],
