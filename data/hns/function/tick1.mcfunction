@@ -3,7 +3,7 @@
 effect give @a[scores={hns.player=1}] minecraft:weakness infinite 255 true
 effect give @a[scores={hns.player=1}] minecraft:resistance infinite 255 true
 effect give @a[scores={hns.player=1}] minecraft:regeneration infinite 255 true
-effect give @a[scores={hns.player=1}] minecraft:saturation infinite 255 true
+effect give @a[scores={hns.player=1}] minecraft:saturation infinite 0 true
 
 # TODO: optimize this
 execute if score autoSeeker hiddenInfo matches 0 run team join Hiders @a[scores={hns.player=1},team=!Seekers,team=!hns_spectators]
