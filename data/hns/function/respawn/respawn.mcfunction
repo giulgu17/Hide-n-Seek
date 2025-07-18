@@ -1,4 +1,4 @@
-execute as @a[scores={deaths=1},limit=1] if entity @s run scoreboard players set @s deaths 0
+execute as @a[scores={hns.deaths=1},limit=1] if entity @s run scoreboard players set @s hns.deaths 0
 clear @s
 effect clear @s
 

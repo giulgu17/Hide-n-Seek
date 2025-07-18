@@ -3,8 +3,8 @@ scoreboard players operation Time: Info = setTime hiddenInfo
 scoreboard players operation PreparationTime: Info = setPrepTime hiddenInfo
 schedule clear hns:timer
 
-gamemode adventure @a
-teleport @a @e[tag=lobby,limit=1]
-team join hns_lobby @a
-clear @a
-effect clear @a
+gamemode adventure @a[scores={hns.player=1}]
+teleport @a[scores={hns.player=1}] @e[tag=hns.lobby,limit=1]
+team join hns_lobby @a[scores={hns.player=1}]
+clear @a[scores={hns.player=1}]
+effect clear @a[scores={hns.player=1}]

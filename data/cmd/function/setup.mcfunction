@@ -3,12 +3,12 @@ tellraw @a {text:"Setting up the gamemode...","color":"yellow"}
 gamerule keepInventory true
 gamerule doMobSpawning false
 gamerule doFireTick false
-gamerule doMobLoot false
+#gamerule doMobLoot false
 gamerule doInsomnia false
 gamerule enderPearlsVanishOnDeath true
 gamerule doImmediateRespawn true
-gamerule doTileDrops false
-gamerule doEntityDrops false
+#gamerule doTileDrops false
+#gamerule doEntityDrops false
 gamerule doLimitedCrafting true
 gamerule doPatrolSpawning false
 gamerule doTraderSpawning false
@@ -47,13 +47,13 @@ team join scoreHiders Hiders:
 team add scoreSeekers
 team modify scoreSeekers color red
 team join scoreSeekers Seekers:
-team add hns.settings.blue
-team modify hns.settings.blue color blue
-team join hns.settings.blue autoSeeker
-team join hns.settings.blue hiderDeath
-team add hns.settings.gray
-team modify hns.settings.gray color gray
-team join hns.settings.gray hns_lobby
+team add hns_settings.blue
+team modify hns_settings.blue color blue
+team join hns_settings.blue autoSeeker
+team join hns_settings.blue hiderDeath
+team add hns_settings.gray
+team modify hns_settings.gray color gray
+team join hns_settings.gray hns_lobby
 
 # Setting up the scoreboards
 scoreboard objectives add Info dummy
@@ -73,8 +73,10 @@ scoreboard players set isGameRunning hiddenInfo 0
 scoreboard players set isSeekerSpawned hiddenInfo 0
 scoreboard players set hns_lobby hiddenInfo 0
 
-scoreboard objectives add deaths deathCount
-scoreboard players add @a deaths 0
+scoreboard objectives add hns.player trigger
+
+scoreboard objectives add hns.deaths deathCount
+scoreboard players add @a hns.deaths 0
 
 scoreboard objectives add leave minecraft.custom:minecraft.leave_game
 
@@ -96,17 +98,7 @@ data modify storage hns:main hns_settings set value { \
     auto_seeker: [{id:"0",display:"Manually"}, {id:"1",display:"Randomly"}], \
     hider_death: [{id:"0",display:"Spectators"}, {id:"1",display:"Seekers"}] \
 }
-
-data modify storage hns:main hns_loadout set value { \
-    kits: [{label: {text: "Default", color: "red"}, tooltip: {text: "1x Stick (sharpness II, knockback IV)"}, action: {type: "minecraft:run_command", command: "trigger hns.kit_selection set 1"}}, \
-    {label: {text: "Swordsman", color: "red"}, tooltip: {text: "1x Diamond Sword (sharpness 15, sweeping edge 10)"}, action: {type: "minecraft:run_command", command: "trigger hns.kit_selection set 101"}}, \
-    {label: {text: "Ninja", color: "red"}, tooltip: {text: "2x Lingering blindness potions (00:05)"}, action: {type: "minecraft:run_command", command: "trigger hns.kit_selection set 2"}}, \
-    {label: {text: "Archer", color: "red"}, tooltip: {text: "1x Bow (Power IV)"}, action: {type: "minecraft:run_command", command: "trigger hns.kit_selection set 102"}}, \
-    {label: {text: "Adrenaline Junkie", color: "red"}, tooltip: {text: "1x Totem of Undying"}, action: {type: "minecraft:run_command", command: "trigger hns.kit_selection set 3"}}, \
-    {label: {text: "Executioner", color: "red"}, tooltip: {text: "1x Diamond Axe (sharpness 20)"}, action: {type: "minecraft:run_command", command: "trigger hns.kit_selection set 103"}}, \
-    ], \
-    team: [{id:"0",display:"Hider"}, {id:"1",display:"Seeker"}] \
-}
+function hns:loadout/reset_kits_menu
 
 
 tellraw @a {text:"Hide'n'seek gamemode successfully setup!","color":"green"}
