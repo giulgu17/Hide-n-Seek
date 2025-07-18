@@ -96,11 +96,13 @@ scoreboard players operation PreparationTime: Info = setPrepTime hiddenInfo
 
 # Setting up the data storages
 data modify storage hns:main hns_settings set value { \
-    template: "function hns:settings/settings_save {'prep_time':'$(new_prep_time)','game_time':'$(new_game_time)','auto_seeker':'$(new_auto_seeker)','hider_death':'$(new_hider_death)'}", \
+    template: "function hns:settings/settings_save {'prep_time':'$(new_prep_time)','game_time':'$(new_game_time)','auto_seeker':'$(new_auto_seeker)','hider_death':'$(new_hider_death)','speed':'$(new_speed)','jump':'$(new_jump)'}", \
     prep_time: 30, \
     game_time: 300, \
     auto_seeker: [{id:"0",display:"Manually"}, {id:"1",display:"Randomly"}], \
-    hider_death: [{id:"0",display:"Spectators"}, {id:"1",display:"Seekers"}] \
+    hider_death: [{id:"0",display:"Spectators"}, {id:"1",display:"Seekers"}], \
+    speed: [{id:"0",display:"OFF"}, {id:"1",display:"ON"}], \
+    jump: [{id:"0",display:"OFF"}, {id:"1",display:"ON"}], \
 }
 function hns:kits/reset_kits_menu
 

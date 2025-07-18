@@ -13,6 +13,7 @@ execute if score autoSeeker hiddenInfo matches 1 run team join Seekers @r[team=H
 
 teleport @a[team=Hiders] @e[tag=hns.spawn, limit=1]
 clear @a
+effect clear @a[scores={hns.player=1}]
 
 title @a[team=Hiders] title {"text":"You are a HIDER!","color":"green"}
 title @a[team=Hiders] subtitle {"text":"Hide and survive","color":"white"}

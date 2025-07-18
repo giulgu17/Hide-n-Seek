@@ -35,6 +35,20 @@ $dialog show @s { \
             "key": "new_hider_death", \
             "label": "Hiders on death become", \
             "options": $(hider_death) \
+        }, \
+        { \
+            "type": "minecraft:single_option", \
+            "key": "new_speed", \
+            "label": "Toggle Speed II", \
+            "width": 150, \
+            "options": $(speed) \
+        }, \
+        { \
+            "type": "minecraft:single_option", \
+            "key": "new_jump", \
+            "label": "Toggle Jump Boost II", \
+            "width": 150, \
+            "options": $(jump) \
         } \
     ], \
     "yes": { \

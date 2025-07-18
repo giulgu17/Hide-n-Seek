@@ -3,8 +3,8 @@ execute as @a[scores={hns.player=1,leave=1..}] run function hns:onjoin
 scoreboard players set @a[scores={leave=1..}] leave 0
 
 # Gives effects to everyone
-effect give @a[scores={hns.player=1}] minecraft:speed infinite 1 true
-effect give @a[scores={hns.player=1}] minecraft:jump_boost infinite 1 true
+execute if score giveSpeed hiddenInfo matches 1 run effect give @a[scores={hns.player=1}] minecraft:speed infinite 1 true
+execute if score giveJump hiddenInfo matches 1 run effect give @a[scores={hns.player=1}] minecraft:jump_boost infinite 1 true
 effect clear @a[scores={hns.player=1},team=!Seekers] minecraft:blindness
 
 # Checks if the spawnpoints are set up

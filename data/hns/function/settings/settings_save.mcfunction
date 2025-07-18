@@ -1,11 +1,16 @@
 # Saves the chosen settings
+execute if score isGameRunning hiddenInfo matches 1 run return fail
 $scoreboard players set setPrepTime hiddenInfo $(prep_time)
 $scoreboard players set setTime hiddenInfo $(game_time)
 $scoreboard players set autoSeeker hiddenInfo $(auto_seeker)
 $scoreboard players set hiderDeath hiddenInfo $(hider_death)
+$scoreboard players set giveSpeed hiddenInfo $(speed)
+$scoreboard players set giveJump hiddenInfo $(jump)
 
 $data modify storage hns:main hns_settings.prep_time set value $(prep_time)
 $data modify storage hns:main hns_settings.game_time set value $(game_time)
+
+effect clear @a[scores={hns.player=1}]
 
 tellraw @a[scores={hns.player=1}] {"text":"Hide'n'Seek settings have been updated!","color":"green"}
 $tellraw @a[scores={hns.player=1}] {"text":"Preparation time: $(prep_time)","color":"yellow"}
