@@ -1,5 +1,7 @@
 # Runs every tick when the game IS running
 
+effect clear @a[scores={hns.player=1}]
+
 # Spawns the seeker(s) when the prep phase is done
 execute if score PreparationTime: Info matches 0 if score isSeekerSpawned hiddenInfo matches 0 run function hns:start2
 

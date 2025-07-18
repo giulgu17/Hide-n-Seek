@@ -27,17 +27,16 @@ execute as @a if score @s hns.kit_seeker matches 0 run scoreboard players set @s
 
 execute as @a if score @s hns.kit_selection matches 1..100 run scoreboard players operation @s hns.kit_hider = @s hns.kit_selection
 execute as @a if score @s hns.kit_selection matches 101..200 run scoreboard players operation @s hns.kit_seeker = @s hns.kit_selection
-execute as @a if score @s hns.kit_selection matches 1.. run function hns:loadout/loadout_open
+execute as @a if score @s hns.kit_selection matches 1.. run function hns:kits/kits_open
 scoreboard players reset @a hns.kit_selection
 scoreboard players enable @a hns.kit_selection
 
 
 # Command system
 execute as @a[scores={hns.player=1}] if score @s hns.cmd matches 1 run function hns:settings/settings_open
-execute as @a[scores={hns.player=1}] if score @s hns.cmd matches 2 run function hns:loadout/loadout_open
-execute as @a[scores={hns.player=1}] if score @s hns.cmd matches 10 run function hns:player/change_teams {"team":"Hiders"}
-execute as @a[scores={hns.player=1}] if score @s hns.cmd matches 11 run function hns:player/change_teams {"team":"Seekers"}
-execute as @a[scores={hns.player=1}] if score @s hns.cmd matches 12 run function hns:player/spectate
+execute as @a[scores={hns.player=1}] if score @s hns.cmd matches 2 run function hns:kits/kits_open
+execute as @a[scores={hns.player=1}] if score @s hns.cmd matches 10 run function hns:teams/spectate_check
+execute as @a[scores={hns.player=1}] if score @s hns.cmd matches 11 run function hns:teams/spectate
 scoreboard players reset @a hns.cmd
 scoreboard players enable @a[scores={hns.player=1}] hns.cmd
 

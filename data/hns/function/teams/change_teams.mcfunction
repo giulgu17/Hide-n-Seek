@@ -1,0 +1,3 @@
+execute if items entity @s weapon.offhand minecraft:lime_wool[minecraft:custom_name=[{text:"Team: Hiders - Press 'F' to change",italic:false}]] run team join Seekers @s
+execute if items entity @s weapon.offhand minecraft:red_wool[minecraft:custom_name=[{text:"Team: Seekers - Press 'F' to change",italic:false}]] run team join Hiders @s
+execute if items entity @s weapon.offhand minecraft:light_gray_wool[minecraft:custom_name=[{text:"Spectator - Press 'F' to change",italic:false}]] run team join Hiders @s

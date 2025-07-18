@@ -51,6 +51,8 @@ team add hns_settings.blue
 team modify hns_settings.blue color blue
 team join hns_settings.blue autoSeeker
 team join hns_settings.blue hiderDeath
+team join hns_settings.blue giveSpeed
+team join hns_settings.blue giveJump
 team add hns_settings.gray
 team modify hns_settings.gray color gray
 team join hns_settings.gray hns_lobby
@@ -67,6 +69,8 @@ scoreboard players set setPrepTime hiddenInfo 30
 scoreboard players set setTime hiddenInfo 300
 scoreboard players set autoSeeker hiddenInfo 1
 scoreboard players set hiderDeath hiddenInfo 1
+scoreboard players set giveSpeed hiddenInfo 1
+scoreboard players set giveJump hiddenInfo 1
 scoreboard players set isSpawnpointSet hiddenInfo 0
 scoreboard players set isLobbySet hiddenInfo 0
 scoreboard players set isGameRunning hiddenInfo 0
@@ -98,7 +102,7 @@ data modify storage hns:main hns_settings set value { \
     auto_seeker: [{id:"0",display:"Manually"}, {id:"1",display:"Randomly"}], \
     hider_death: [{id:"0",display:"Spectators"}, {id:"1",display:"Seekers"}] \
 }
-function hns:loadout/reset_kits_menu
+function hns:kits/reset_kits_menu
 
 
 tellraw @a {text:"Hide'n'seek gamemode successfully setup!","color":"green"}

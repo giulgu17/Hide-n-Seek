@@ -1,0 +1,2 @@
+execute if score isGameRunning hiddenInfo matches 1 as @s[scores={hns.player=1},team=!Spectators] run return run function hns:teams/spectate_confirm
+execute if score isGameRunning hiddenInfo matches 0 as @s[scores={hns.player=1},team=!Spectators] run function hns:teams/spectate

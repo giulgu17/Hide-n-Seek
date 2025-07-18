@@ -6,6 +6,6 @@ execute if score @s hns.kit_seeker matches 101 run data modify storage hns:main 
 execute if score @s hns.kit_seeker matches 102 run data modify storage hns:main hns_loadout.kits[3].label.color set value "green"
 execute if score @s hns.kit_seeker matches 103 run data modify storage hns:main hns_loadout.kits[5].label.color set value "green"
 
-function hns:loadout/loadout_menu with storage hns:main hns_loadout
+function hns:kits/kits_menu with storage hns:main hns_loadout
 
-function hns:loadout/reset_kits_menu
+function hns:kits/reset_kits_menu

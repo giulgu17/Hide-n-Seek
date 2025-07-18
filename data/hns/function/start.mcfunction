@@ -20,7 +20,7 @@ title @a[team=Seekers] title {"text":"You are a SEEKER!","color":"red"}
 title @a[team=Seekers] subtitle {"text":"Kill all hiders","color":"white"}
 
 # TODO: make items unable to be dropped
-execute as @a[scores={hns.player=1}] run function hns:loadout/give
+execute as @a[scores={hns.player=1}] run function hns:kits/give
 
 scoreboard players set isGameRunning hiddenInfo 1
 scoreboard players set isSeekerSpawned hiddenInfo 0

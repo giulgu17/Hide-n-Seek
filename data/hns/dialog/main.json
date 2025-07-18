@@ -36,6 +36,17 @@
                 "type": "minecraft:run_command",
                 "command": "trigger hns.cmd set 2"
             }
+        },
+        {
+            "label": {
+                "text": "Spectate",
+                "color": "gray"
+            },
+            "width": 120,
+            "action": {
+                "type": "minecraft:run_command",
+                "command": "trigger hns.cmd set 10"
+            }
         }
     ],
     "exit_action": {
